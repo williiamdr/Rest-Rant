@@ -1,15 +1,22 @@
 const router = require('express').Router()
-const express = require('express')
-const app = express()
 
 router.get('/', (req, res) => {
-    res.render('./places/index')
+    let places = [
+        {
+            name: 'H-Thai-ML',
+            city: 'Seattle',
+            state: 'WA',
+            cuisines: 'Thai, Pan-Asian',
+            pic: '/images/soup.jpg'
+        }, {
+            name: 'Coding Cat Cafe',
+            city: 'Phoenix',
+            state: 'AZ',
+            cuisines: 'Coffee, Bakery',
+            pic: '/images/toast.jpg'
+        }
+    ]
+    res.render('places/index', { places })
 })
 
-// GET /places
-app.get('/', (req, res) => {
-    res.render('places/index')
-  })
-  
-
-module.exports = router
+module.exports = router 

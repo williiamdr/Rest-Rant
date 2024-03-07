@@ -6,6 +6,13 @@ function home () {
       <Def>
           <main>
               <h1>HOME</h1>
+              <img src="/images/charcuterie-board.jpg" alt="Charcuterie board" />
+              <div>
+              Photo by <a href="https://unsplash.com/@ellaolsson?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ella Olsson</a> on <a href="https://unsplash.com/photos/assorted-fruits-and-vegetable-on-brown-wooden-chopping-board-2IxTgsgFi-s?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> 
+              </div>
+              <a href="/places">
+  <button className="btn-primary">Places to rant or Rave About</button>
+</a>
           </main>
       </Def>
     )
