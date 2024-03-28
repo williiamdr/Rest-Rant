@@ -13,7 +13,11 @@ const placeSchema = new mongoose.Schema({
         type: Number,
         min: [1673, 'Invalid date!'],
         max: [new Date().getFullYear(), 'This is an invalid date!']
-    }
+    },
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment'
+    }]
 })
 
 placeSchema.methods.showEstablished = function () {

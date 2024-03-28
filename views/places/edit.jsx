@@ -63,6 +63,17 @@ function edit_Form({ place }) {
               required
             />
           </div>
+          <div className="form-group col-sm-6">
+              <label htmlFor="founded">Founded</label>
+              <input
+                className="form-control"
+                type="number"
+                id="founded"
+                name="founded"
+                defaultValue={place.founded}
+                required
+              />
+            </div>
           <div>
             <input className="btn btn-primary" type="submit" value="Update" />
           </div>

@@ -2,6 +2,50 @@ const React = require("react");
 const Def = require("../default");
 
 function Show({ place }) {
+  let comments = (
+    <p className="inactive">
+      No comments yet!
+    </p>
+  )
+
+  let rating = (
+    <h3 className="inactive">
+      Not yet rated
+    </h3>
+  )
+
+  if (place.comments.length) {
+    let sumRatings = place.comments.reduce((tot, c) => {
+      return tot + c.stars
+    }, 0)
+    let averageRating = Math.round(sumRatings / place.comments.length)
+    let stars = ''
+    for (let i = 0; i < averageRating; i++) {
+      stars += '⭐️'
+    }
+    rating = (
+      <h3>
+        {stars} stars
+      </h3>
+    )
+    comments = place.comments.map(c => {
+      return (
+        <div className="border border-2 rounded" key={c.id} style={{
+          backgroundColor: '#e9f1f7',
+          textAlign: 'left',
+          padding: '10px 15px'
+        }}>
+          <h6><strong>{c.rant ? 'Rant!' : 'Rave!'}</strong></h6>
+          <p>{c.content}</p>
+          <h6>- {c.author}</h6>
+          <h6><strong>Rating: {c.stars}</strong></h6>
+          <form method='POST' action={`/places/${place.id}/comment/${c.id}?_method=DELETE`}>
+            <input type="submit" className="btn btn-danger" value='Delete Comment' />
+          </form>
+        </div>
+      )
+    })
+  }
   return (
     <Def>
       <main>
